@@ -1,0 +1,21 @@
+<img src="{{album.album_art}}" alt="album_art" style="width:200px">
+
+<h2>{{ album.album_title }}</h2>
+<h3>{{ album.artist }}</h3>
+
+{% if error_message %}
+    <p><strong>{{error_message}}</strong></p>
+{% endif %}
+
+<form action="{% url 'music:favourite' album.id %}" method="post" accept-charset="utf-8">
+    {% csrf_token %}
+    {% for song in album.song_set.all %}
+        <label for="song {{ forloop.counter }}"><input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
+        {{song.song_title}}
+        {% if song.is_fav %}
+        <img src="https://cdn4.iconfinder.com/data/icons/Sizicons/16x16/star_blue.png" alt="fav_star">
+            {% endif %}
+        </label> </br>
+    {% endfor %}
+    <input type="submit" value="Favourite"></input>
+</form>
