@@ -45,3 +45,7 @@ class urlTests(TestCase):
         self.assertEqual(music_response.status_code, 200)
         self.assertEqual(album_response.status_code, 200)
         self.assertEqual(favourite_response.status_code, 200)
+
+    def test_exceptions(self):
+        favourite_response = self.c.post('/music/1/favourite')
+        self.assertEqual(favourite_response.status_code, 301)
