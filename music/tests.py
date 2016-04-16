@@ -1,5 +1,5 @@
 from django.test import TestCase
-from models import Album, Song
+from music.models import Album, Song
 # Create your tests here.
 
 
