@@ -2,4 +2,4 @@ machine:
     python:
         version: 3.4.3
     environment:
-       OVERALLS_REPO_TOKEN: rp4BQkasuaThtDQw4bsd7VkvRYbYac5co
+       COVERALLS_REPO_TOKEN: rp4BQkasuaThtDQw4bsd7VkvRYbYac5co
