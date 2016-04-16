@@ -3,3 +3,8 @@ machine:
         version: 3.4.3
     environment:
        COVERALLS_REPO_TOKEN: rp4BQkasuaThtDQw4bsd7VkvRYbYac5co
+test:
+  override:
+    - coverage run manage.py test
+  post:
+    - coveralls
