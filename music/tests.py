@@ -1,19 +1,5 @@
 from django.test import TestCase, Client
 from music.models import Album, Song
-# Create your tests here.
-
-
-# class AlbumTestCase(TestCase):
-#     def setUp(self):
-#         Album.objects.create(
-#             artist="GuitarGod",
-#             album_title="EpicTitle",
-#             genre="ROCK",
-#             album_art="somealbumart.png")
-
-#     def test_album_created(self):
-#         EpicAlbum = Album.objects.get(album_title="EpicTitle")
-#         self.assertEqual(str(EpicAlbum), "EpicTitle by GuitarGod")
 
 
 class modelCreateTests(TestCase):
@@ -52,8 +38,10 @@ class urlTests(TestCase):
             album=Album.objects.get(album_title="EpicTitle"))
         self.c = Client()
 
-    def test_get_requests(self):
+    def test_requests(self):
         music_response = self.c.get('/music/')
         album_response = self.c.get('/music/1/')
+        favourite_response = self.c.post('/music/1/favourite/', {'song': 1})
         self.assertEqual(music_response.status_code, 200)
         self.assertEqual(album_response.status_code, 200)
+        self.assertEqual(favourite_response.status_code, 200)
