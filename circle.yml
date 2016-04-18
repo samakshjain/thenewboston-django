@@ -5,6 +5,7 @@ machine:
        COVERALLS_REPO_TOKEN: rp4BQkasuaThtDQw4bsd7VkvRYbYac5co
 test:
   override:
+    - python manage.py collectstatic --no-input
     - coverage run manage.py test
   post:
     - coveralls
