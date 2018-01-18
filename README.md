@@ -3,4 +3,4 @@
 ![Coverage Status](https://coveralls.io/repos/github/samakshjain/thenewboston-django/badge.svg?branch=master)
 # thenewboston-django
 
-[Heroku App]http://samakshjain.herokuapp.com/music/
+[Heroku App]https://tnb-django.herokuapp.com/music/
